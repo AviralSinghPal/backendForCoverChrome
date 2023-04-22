@@ -51,3 +51,38 @@ The Product model is used to store information about the products available on y
   - `comment` (String) - The comment left by the user for the product.
 - `user` (ObjectId) - The unique identifier for the user who added the product.
 - `createdAt` (Date) - The date when the product was added to the system.
+
+## Order Model
+
+The Order model is used to store information about orders placed by users on your ecommerce app.
+
+### Fields
+
+- `shippingInfo` (Object) - An object containing the shipping information for the order.
+  - `phone` (String) - The phone number of the recipient.
+  - `address` (String) - The address of the recipient.
+  - `city` (String) - The city of the recipient.
+  - `postalCode` (String) - The postal code of the recipient.
+  - `country` (String) - The country of the recipient.
+- `user` (ObjectId) - The unique identifier for the user who placed the order.
+- `paymentInfo` (Object) - An object containing the payment information for the order.
+  - `orderId` (String) - The unique identifier for the order.
+  - `successId` (String) - The unique identifier for the payment success.
+  - `paymentMethod` (String) - The payment method used to place the order (e.g. Stripe, Razorpay).
+- `taxAmount` (Number) - The tax amount for the order.
+- `totalAmount` (Number) - The total amount for the order (including tax and shipping).
+- `orderStatus` (String) - The status of the order (e.g. pending, shipped, delivered).
+- `deliveryAt` (Date) - The date when the order is expected to be delivered.
+- `createdAt` (Date) - The date when the order was created.
+
+### Order Items
+
+Each order can contain multiple order items, which represent the products that were purchased as part of the order. These order items are stored as an array of objects within the Order model.
+
+- `name` (String) - The name of the product.
+- `quantity` (Number) - The quantity of the product purchased.
+- `image` (String) - The secure URL for the main image of the product.
+- `price` (Number) - The price of the product.
+- `product` (ObjectId) - The unique identifier for the product purchased.
+
+By storing each order item as a separate object, you can easily retrieve information about the products that were part of a specific order.
