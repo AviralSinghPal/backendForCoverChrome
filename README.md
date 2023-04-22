@@ -22,6 +22,39 @@ The User model is used to store user information for your ecommerce app.
   - `id` (String) - The unique identifier for the user's profile photo, retrieved from Cloudinary.
 - `role` (String) - The role of the user, such as "customer" or "admin".
 - `createdAt` (Date) - The date when the user's account was created.
+------------------------------------------------
+## Additional Functions in User Model
+
+In addition to the standard fields in the User model, there are some additional functions that have been implemented to improve the user experience and security of the application. These functions are as follows:
+
+### resetPasswordToken()
+
+The `resetPasswordToken()` function is used to generate a unique token that is sent to the user when they request to reset their password. This token is then checked when the user sends a request to reset their password and verifies that the user is who they say they are.
+
+### resetPasswordExpiry
+
+The `resetPasswordExpiry` field is used to store the expiry time of the reset password token. This is important as it ensures that the token is only valid for a certain period of time, improving the security of the application.
+
+### getJwtToken()
+
+The `getJwtToken()` function is used to generate a JSON Web Token (JWT) for the user. This token is used to authenticate the user when they make requests to the server, ensuring that only authorized users can access the application.
+
+### Pre-hooks to encrypt password that we take from user
+
+To improve the security of the application, pre-hooks have been implemented to encrypt the password that is taken from the user. This ensures that even if the database is compromised, the user's password remains secure.
+
+### comparePassword()
+
+The `comparePassword()` function is used to compare the user's entered password with the hashed password stored in the database. This ensures that the user is who they say they are and that their password is correct.
+
+### getResetPasswordToken()
+
+The `getResetPasswordToken()` function is used to retrieve the reset password token for the user. This is useful if the user has lost their token or if it has expired and they need a new one.
+
+By implementing these additional functions in the User model, we have improved the security and user experience of the application.```
+
+I hope this helps!
+
 
 Additional fields can be added as needed to store other user information, such as shipping address or payment details.
 
