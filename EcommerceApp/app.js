@@ -1,7 +1,7 @@
+require("dotenv").config();
 const cookieParser = require('cookie-parser');
 const express = require('express');
 const fileUpload = require('express-fileupload');
-require("dotenv").config();
 
 const app = express();
 var morgan = require("morgan");
